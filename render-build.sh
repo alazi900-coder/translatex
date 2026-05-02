@@ -3,6 +3,7 @@ set -e
 
 echo "=== Installing dependencies ==="
 npm install -g pnpm
+rm -f pnpm-lock.yaml
 pnpm install --no-frozen-lockfile
 
 echo "=== Building frontend ==="
