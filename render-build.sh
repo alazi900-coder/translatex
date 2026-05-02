@@ -3,7 +3,11 @@ set -e
 
 echo "=== Installing dependencies ==="
 npm install -g pnpm
+
+# Use Render-specific workspace config (no Replit overrides/minimumReleaseAge)
+cp render-pnpm-workspace.yaml pnpm-workspace.yaml
 rm -f pnpm-lock.yaml
+
 pnpm install --no-frozen-lockfile
 
 echo "=== Building frontend ==="
