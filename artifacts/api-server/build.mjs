@@ -29,6 +29,10 @@ async function buildAll() {
     // - use path traversal to read files (e.g. @google-cloud/secret-manager loads sibling .proto files)
     external: [
       "*.node",
+      // @bokuweb/zstd-wasm loads its zstd.wasm sibling via __dirname at
+      // runtime; bundling it would lose the file. Externalize so Node
+      // resolves it from node_modules where the wasm sits next to index.js.
+      "@bokuweb/zstd-wasm",
       "sharp",
       "better-sqlite3",
       "sqlite3",
