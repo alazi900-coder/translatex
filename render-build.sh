@@ -3,7 +3,7 @@ set -e
 
 echo "=== Installing dependencies ==="
 npm install -g pnpm
-pnpm install --frozen-lockfile
+pnpm install --no-frozen-lockfile
 
 echo "=== Building frontend ==="
 BASE_PATH="/" PORT=3000 pnpm --filter @workspace/translatex run build
